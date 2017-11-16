@@ -12,6 +12,7 @@ class AddPost extends Component {
   }
 
   handleChange = event => {
+    console.log(this.props.firebase)
     this.setState({
       title: event.target.value
     })
@@ -20,7 +21,7 @@ class AddPost extends Component {
   handleSubmit = event => {
     event.preventDefault()
 
-    this.props.firebaseRef.push({
+    this.props.firebase.ref('posts').push({
       title: this.state.title
     })
 
